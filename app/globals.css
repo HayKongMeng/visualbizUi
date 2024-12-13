@@ -1,0 +1,348 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 62.5% !important;
+  }
+
+  * {
+    @apply text-dark_gray;
+    scroll-behavior: smooth;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffba00;
+}
+#search-tab::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+#hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+#hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+table thead th {
+  padding: 10px;
+}
+
+#my_input_date::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+th {
+  padding: 30px;
+  /* padding-left: 15px;
+  padding-right: 15px; */
+}
+td {
+  padding: 15px;
+}
+th {
+  text-align: left;
+}
+img {
+  @apply w-full h-full object-cover object-center;
+}
+
+ion-icon {
+  font-size: 3.4rem;
+  @apply cursor-pointer;
+}
+
+#hey:hover {
+  stroke: black;
+}
+
+#sidebar:hover {
+  stroke: black;
+}
+
+.links {
+  @apply z-[999] font-normal after:w-0 after:h-[.2rem] after:rounded-full after:absolute after:bg-secondary after:-bottom-1 after:content-[''] after:left-0 after:duration-300 after:hover:w-full hover:text-secondary before:content-[''] before:absolute before:duration-[800ms] before:inset-0 before:z-[-1] before:scale-x-[1.5] before:rounded-md before:scale-y-[1.5] hover:before:bg-light_gray/50;
+}
+
+.active.links {
+  @apply text-secondary after:w-full;
+}
+
+footer * {
+  @apply text-white;
+}
+
+/* header svg {
+  @apply stroke-primary;
+} */
+
+.cate-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* svg * {
+  @apply stroke-[4rem];
+} */
+.fc-h-event {
+  background-color: #1c2537;
+  color: #fff;
+  border: none;
+}
+.fc-event-title {
+  color: #fff;
+}
+.fc-next-button,
+.fc-prev-button {
+  border-radius: 100rem !important;
+  background: #1c2537 !important;
+}
+.fc-button-group .fc-icon {
+  color: #fff !important;
+}
+.my-card {
+  @apply relative z-10 after:absolute after:inset-0 after:hover:scale-[1.1] after:duration-300 after:rounded-small after:hover:bg-bg/[.4] after:z-[-1];
+}
+
+p.icon {
+  color: red;
+  background: linear-gradient(90deg, #fff 90%, transparent);
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+#svg-add-to-cart * {
+  @apply stroke-white;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+#linksidebar svg {
+  @apply stroke-white;
+}
+
+#linksidebar:hover svg {
+  @apply stroke-primary;
+}
+
+.team-card:nth-child(1) {
+  grid-row: 1/2;
+  grid-column: 2/3;
+}
+
+.team-card:nth-child(2) {
+  grid-row: 1/2;
+  grid-column: 3/4;
+}
+
+.team-card:nth-child(3) {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.team-card:nth-child(4) {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.team-card:nth-child(5) {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+
+.team-card:nth-child(6) {
+  grid-column: 4/5;
+  grid-row: 2/3;
+}
+
+.team-card:nth-child(7) {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+
+.team-card:nth-child(8) {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+
+.team-card:nth-child(9) {
+  grid-column: 3/4;
+  grid-row: 3/4;
+}
+
+.team-card:nth-child(10) {
+  grid-column: 4/5;
+  grid-row: 3/4;
+}
+.big-btn {
+  @apply py-[1rem] px-[2rem] !text-normal inline-block;
+}
+
+.small-btn {
+  @apply py-[.8rem] px-[1.6rem] !text-mid inline-block;
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  *::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  * {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+.my-footer * {
+  @apply text-primary;
+}
+
+.overlay {
+  @apply after:absolute after:inset-0 after:top-0 after:left-0;
+}
+
+.overlay::after {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
+  ); /* Linear gradient background */
+}
+
+.card-event.overlay::after {
+  background: none;
+  @apply opacity-0;
+}
+
+.card-event:hover.overlay::after {
+  @apply opacity-100 duration-500;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
+  ); /* Linear gradient background */
+}
+
+.modal-box {
+  @apply h-auto;
+}
+
+.fc-toolbar {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #1c2537; /* Replace with your desired background color */
+  color: white;
+  border-color: #ccc; /* Optionally, change the border color */
+  /* Add other styles as needed */
+}
+.fc-toolbar-title {
+  color: white;
+}
+.fc-toolbar .fc-prev-button,
+.fc-toolbar .fc-next-button {
+  background-color: white; /* Replace with your desired background color */
+  color: white; /* Optionally, change the text color */
+  /* Add other styles as needed */
+}
+.fc-today-button {
+  border-radius: 50px !important;
+  font-size: 15px I !important;
+  background-color: white !important;
+  color: #1c2537 !important;
+  text-transform: capitalize !important;
+  font-weight: bold !important;
+}
+
+.fc-toolbar .fc-prev-button:focus,
+.fc-toolbar .fc-next-button:focus {
+  color: white; /* Optionally, change the text color */
+  /* Add other styles as needed */
+}
+.fc-list-empty {
+  padding: 10px;
+  background-color: #1c2537;
+}
+/* 
+.fc-timeGridWeek-view{
+  background-color: #1c2537;
+  border-radius: 10px;
+  padding: 10px;
+} */
+.fc-scrollgrid,
+.fc-listMonth-view {
+  padding: 10px;
+  background-color: #1c2537;
+  border-radius: 10px;
+  /* padding-bottom: 80px; */
+}
+.fc-timegrid-axis {
+  background-color: paleturquoise;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  border: #1c2537 solid 1px;
+}
+
+.fc-timegrid-slot-label-frame {
+  padding: 10px;
+}
+.fc-scrollgrid-section {
+  background-color: white;
+  border: black !important;
+}
+.fc-time-grid .fc-slats td {
+  height: 2em;
+  border-bottom: 0;
+}
+
+.fc-event-title {
+  color: black;
+  font-weight: bold;
+}
+
+.my-qr {
+  clip-path: polygon(0% 0%, 93% 0, 100% 7%, 100% 100%, 0% 100%);
+}
+.fc-event {
+  width: 100%;
+}
+
+.fc-timegrid-slot {
+  height: 5rem !important;
+}
+
+.fc-col-header-cell {
+  padding: 20px !important;
+}
