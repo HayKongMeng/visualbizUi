@@ -3,7 +3,10 @@ import React from "react";
 import ShopCard from "../Cards/ShopCard";
 
 const SectionRetailer = ({ isFilter = false, allShop }) => {
-  const shops = allShop.filter((shop) => shop.shopType.shopTypeId === 1);
+  const shopsData = allShop || shopList;
+  const shops = shopsData.filter((shop) => shop?.shopType?.shopTypeId === 1);
+
+  // const shops = allShop.filter((shop) => shop.shopType.shopTypeId === 1);
   return (
     <>
       {allShop?.length > 0 && (

@@ -73,37 +73,97 @@ export const updatePromotionById = async (new_pro_data, promotion_id) => {
  * @param {number} size for size of data
  * @returns {Promise<T>} payload
  */
-export const getAllPromotions = async (page = 1, size = 8) => {
-  const headers = await reqHeader();
-
-  const res = await fetch(
-    `${process.env.BASE_URL}/promotion?page=${page}&size=${size}`,
-    {
-      headers,
-    },
-    {
-      next: {
-        tag: ["getAllPromotions"],
-      },
+// export const getAllPromotions = async (page = 1, size = 8) => {
+  export const getAllPromotions = async (page = 1, size = 8) => {
+    const headers = await reqHeader();
+    
+    try {
+      const res = await fetch(
+        `${process.env.BASE_URL}/promotion?page=${page}&size=${size}`,
+        {
+          headers,
+        },
+        {
+          next: {
+            tag: ["getAllPromotions"],
+          },
+        }
+      );
+      
+      // Check if response is ok
+      if (!res.ok) {
+        console.error(`API error: ${res.status} ${res.statusText}`);
+        return [];
+      }
+      
+      // Try to parse the response safely
+      const text = await res.text();
+      if (!text) {
+        console.error("Empty response from server");
+        return [];
+      }
+      
+      // Try to parse the JSON
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        console.error("JSON parse error:", e, "Response:", text);
+        return [];
+      }
+      
+      // Check if payload exists
+      if (!data.payload) {
+        console.error("No payload in response:", data);
+        return [];
+      }
+      
+      // Continue with your filter logic
+      const seen = new Set();
+      const filterPromotion = data.payload.filter((el) => {
+        const shopId = el.shopId?.shopId;
+        if (seen.has(shopId)) {
+          return false;
+        }
+        seen.add(shopId);
+        return true;
+      });
+      
+      return filterPromotion;
+    } catch (error) {
+      console.error("Error fetching promotions:", error);
+      return [];
     }
-  );
-  const { payload } = await res.json();
+  };
+//   const headers = await reqHeader();
 
-  console.log(payload);
+//   const res = await fetch(
+//     `${process.env.BASE_URL}/promotion?page=${page}&size=${size}`,
+//     {
+//       headers,
+//     },
+//     {
+//       next: {
+//         tag: ["getAllPromotions"],
+//       },
+//     }
+//   );
+//   const { payload } = await res.json();
 
-  const seen = new Set();
-  const filterPromotion = payload.filter((el) => {
-    const shopId = el.shopId?.shopId;
-    if (seen.has(shopId)) {
-      return false;
-    }
-    seen.add(shopId);
-    return true;
-  });
+//   console.log(payload);
 
-  return filterPromotion;
-};
+//   const seen = new Set();
+//   const filterPromotion = payload.filter((el) => {
+//     const shopId = el.shopId?.shopId;
+//     if (seen.has(shopId)) {
+//       return false;
+//     }
+//     seen.add(shopId);
+//     return true;
+//   });
 
+//   return filterPromotion;
+// };
 /**
  * 4
  * post new promotion

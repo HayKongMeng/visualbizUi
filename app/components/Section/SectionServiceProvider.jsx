@@ -3,7 +3,7 @@ import React from "react";
 import ServiceCard from "../Cards/ServiceProviderCard";
 
 const SectionServiceProvider = ({ isFilter = false, allShop }) => {
-  const services = allShop.filter((shop) => shop.shopType.shopTypeId === 2);
+  const services = allShop?.filter((shop) => shop?.shopType?.shopTypeId === 2) || [];
 
   return (
     <>
